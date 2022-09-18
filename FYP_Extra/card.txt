@@ -1,0 +1,143 @@
+Card(
+      elevation: 5,
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              height: 40,
+              alignment: Alignment.centerLeft,
+              width: double.infinity,
+              child: Padding(padding: EdgeInsets.only(left: 8),
+                  child: Row ( children: [
+                    Padding(padding: EdgeInsets.only(right: 15), child: Icon(CustomIcon.project_diagram, color: Colors.white, size: 15)),
+                    Text(
+                      project.name,
+                      maxLines: 1,
+                      style: TextStyle(color: Colors.white, fontSize: 16 ),
+                      overflow: TextOverflow.ellipsis,
+                    )])),
+              decoration: new BoxDecoration(
+                  color: HexColor("#1a73e8"),
+              ),),
+        Padding(padding: EdgeInsets.only(top: 10),
+          child:Text(
+            project.description ?? '',
+              maxLines: 4,
+              style: TextStyle(fontSize: 13),
+              overflow: TextOverflow.ellipsis,
+            )),
+            const Divider(
+              height: 16,
+              thickness: 1,
+              indent: 0,
+              endIndent: 0,
+              color: Colors.blueGrey,
+            ),
+            Column(
+              children: [
+                Table(
+                  children: [
+                    TableRow(children: [
+                      Padding(padding: EdgeInsets.only(top: 12),
+                          child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Members',
+                              style: Theme.of(context).textTheme.subtitle2!
+                                  .copyWith(color: Colors.grey[700]),
+                            )
+                          ])),
+                      Padding(padding: EdgeInsets.only(top: 12),
+                          child:Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                             project.numofmembers.toString(),
+                              style: Theme.of(context).textTheme.subtitle1!
+                                  .copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
+                            )
+                          ])),
+                    ]),
+                    TableRow(children: [
+                      Padding(padding: EdgeInsets.only(top: 12),
+                          child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Environments',
+                              style: Theme.of(context).textTheme.subtitle2!
+                                  .copyWith(color: Colors.grey[700]),
+                            )
+                          ])),
+                      Padding(padding: EdgeInsets.only(top: 12),
+                          child:Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                               project.numofenvs.toString(),
+                              style: Theme.of(context).textTheme.subtitle1!
+                                  .copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
+                            ),
+                          ])),
+                    ]),
+                    TableRow(children: [
+                      Padding(padding: EdgeInsets.only(top: 12),
+                          child:Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Plan',
+                              style: Theme.of(context).textTheme.subtitle2!
+                                  .copyWith(color: Colors.grey[800]),
+                            ),
+                          ])),
+                      Padding(padding: EdgeInsets.only(top: 12),
+                          child:Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              project.packageuuid ?? '',
+                              style: Theme.of(context).textTheme.subtitle1!
+                                  .copyWith(color: Colors.grey[700],fontWeight: FontWeight.w400),
+                            )
+                          ])),
+                    ]),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(padding: EdgeInsets.only(top: 10, right: 5),
+                      child: TextButton(
+                        onPressed:() {
+                          showAlertDialog(context, project.name,project.projectId);
+                        },
+                        child: const Text('Delete'),
+                      ),),
+                    Padding(padding: EdgeInsets.only(top: 12),
+                      child:ElevatedButton(
+                      child: const Text('View'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProjectView(id: project.projectId, package: project.packageuuid ?? '',)),
+                        );
+                      },
+                    )),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );

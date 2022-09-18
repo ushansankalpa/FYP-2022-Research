@@ -1,0 +1,19 @@
+Dear Sir,
+  
+For my final year project, I have an idea.
+
+Developing a system for Future Prediction. 
+In the current situation, students are avoiding studies and their marking grades decrease.
+I trying to develop an application for future prediction using exam results for both students and teachers.
+The technologies going to use for Machine learning and Data Science.
+
+As an example:
+ The teacher can create questions using the selected module. The system shows these questions as the exam paper.
+ After student faces their exam papers, the system shows guides the students on how to increase their exam marks.
+ The teachers can show predictions using overall markings.
+  
+
+I would be very grateful if you are interested in my idea, We can discuss it. 
+
+Regards,
+Ushan Sankalpa
