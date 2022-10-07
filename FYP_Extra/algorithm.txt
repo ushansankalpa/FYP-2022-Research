@@ -1,4 +1,6 @@
-fasi logic
+Fazzy logic
 ensemble
 classification type algorithem
-skills and 
+grouping student analysis personalities and success rate
+grouping student analysis personalities and success rate dataset
+how to group skills using machine learning algorithms
