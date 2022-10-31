@@ -1,0 +1,2 @@
+Given the questioins for user and identify their VARK model , then 
+personalise
